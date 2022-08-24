@@ -1,3 +1,4 @@
+<?php require_once 'baglan.php'; ?>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -11,10 +12,20 @@
     <title>Kayıt Listeleme</title>
 </head>
 <body>
+<form action="islem.php" method="form">
+    <input type="text" required="" name="bilgilerim_ad" placeholder="Adınızı Giriniz...">
+	<input type="text" required="" name="bilgilerim_soyad" placeholder="Soyadınızı Giriniz...">
+	<input type="email" required="" name="bilgilerim_mail" placeholder="Mail Giriniz...">
+	<input type="text" required="" name="bilgilerim_yas" placeholder="Yaş Giriniz...">
+	<button type="submit" name="insertislemi">Formu Gönder</button>
+</form>
+<?php 
 
-
-
-
+$bilgilerimsor=$db->prepare("SELECT * from bilgilerim");
+$bilgilerimsor->execute();
+$say=0;
+while($bilgilerimcek=$bilgilerimsor->fetch(PDO::FETCH_ASSOC)) { $say++?>
+?>
 <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -31,41 +42,18 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      
-      
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      
-      
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      
+      <th scope="row"><?php echo $say; ?></th>
+      <td><?php echo $bilgilerimcek['bilgilerim_id'] ?></td>
+	  <td><?php echo $bilgilerimcek['bilgilerim_ad'] ?></td>
+ 	  <td><?php echo $bilgilerimcek['bilgilerim_soyad'] ?></td>
+      <td><?php echo $bilgilerimcek['bilgilerim_mail'] ?></td>
+      <td><?php echo $bilgilerimcek['bilgilerim_yas'] ?></td>
+	  <td align="center"><a href="duzenle.php?bilgilerim_id=<?php echo $bilgilerimcek['bilgilerim_id'] ?>"><button>Düzenle</button></td></a>
+	  <td align="center"><a href="islem.php?bilgilerim_id=<?php echo $bilgilerimcek['bilgilerim_id'] ?>&bilgilerimsil=ok"><button>Sil</button></td></a>
       
       
     </tr>
   </tbody>
+  <?php } ?>
 </body>
 </html>
