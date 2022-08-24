@@ -1,24 +1,30 @@
-<?php require_once 'baglan.php'; ?>
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <title>Kayıt Listeleme</title>
-</head>
+<?php include 'header.php'; ?>
 <body>
-<form action="islem.php" method="POST">
-    <input type="text" required="" name="bilgilerim_ad" placeholder="Adınızı Giriniz...">
-	<input type="text" required="" name="bilgilerim_soyad" placeholder="Soyadınızı Giriniz...">
-	<input type="email" required="" name="bilgilerim_mail" placeholder="Mail Giriniz...">
-	<input type="text" required="" name="bilgilerim_yas" placeholder="Yaş Giriniz...">
-	<button type="submit" name="insertislemi">Formu Gönder</button>
-</form>
+    <section>
+        <div class="container w-25 mx-auto">
+            <form action="islem.php" method="POST">
+                <div class="w-100 mb-3 bg-danger text-white rounded-2">
+                    <span>Veri Tabanı Kayıt</span>
+                </div>
+                <div class="w-100 mb-3">
+                    <input type="text" name="bilgilerim_ad" class="form-control border border-info" placeholder="Adınızı Giriniz" required="">
+                </div>
+                <div class="w-100 mb-3">
+                <input type="text" name="bilgilerim_soyad" class="form-control border border-info" placeholder="Soyadınızı Giriniz" required="">
+                </div>
+                <div class="w-100 mb-3">
+                <input type="email" name="bilgilerim_mail" class="form-control border border-info" placeholder="Mail Giriniz" required="">
+                </div>
+                <div class="w-100 mb-3">
+                <input type="text" name="bilgilerim_yas" class="form-control border border-info" placeholder="Yaş Giriniz" required="">
+                </div>
+                </div>
+                <div class="w-25 girisyap">
+                    <button type="submit" name="insertislemi" class="btn btn-outline-danger">Kayıt Ekle</button>
+                </div>
+            </form>
+        </div>
+    </section>
 <?php 
 
 $bilgilerimsor=$db->prepare("SELECT * from bilgilerim");
