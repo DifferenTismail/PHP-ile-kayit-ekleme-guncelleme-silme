@@ -12,7 +12,7 @@
     <title>Kayıt Listeleme</title>
 </head>
 <body>
-<form action="islem.php" method="form">
+<form action="islem.php" method="POST">
     <input type="text" required="" name="bilgilerim_ad" placeholder="Adınızı Giriniz...">
 	<input type="text" required="" name="bilgilerim_soyad" placeholder="Soyadınızı Giriniz...">
 	<input type="email" required="" name="bilgilerim_mail" placeholder="Mail Giriniz...">
