@@ -25,7 +25,7 @@ $bilgilerimsor=$db->prepare("SELECT * from bilgilerim");
 $bilgilerimsor->execute();
 $say=0;
 while($bilgilerimcek=$bilgilerimsor->fetch(PDO::FETCH_ASSOC)) { $say++?>
-?>
+
 <table class="table table-striped table-hover">
   <thead>
     <tr>
