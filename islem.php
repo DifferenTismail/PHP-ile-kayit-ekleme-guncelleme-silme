@@ -70,7 +70,7 @@ if (isset($_POST['updateislemi'])) {
 		
 		//echo "kayıt başarılı";
 
-		Header("Location:duzenle.php?durum=ok&bilgilerim_id=$bilgilerim_id");
+		Header("Location:index.php?durum=ok&bilgilerim_id=$bilgilerim_id");
 		exit;
 
 	} else {
