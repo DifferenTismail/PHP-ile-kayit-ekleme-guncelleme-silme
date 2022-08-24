@@ -11,7 +11,7 @@
 
 	?>
     <section>
-        <div class="container w-25 mx-auto">
+        <div class="container w-25 mt-3 mx-auto">
             <form action="islem.php" method="POST">
                 <div class="w-100 mb-3 bg-danger text-white rounded-2">
                     <span>Kayıt Düzenle</span>
