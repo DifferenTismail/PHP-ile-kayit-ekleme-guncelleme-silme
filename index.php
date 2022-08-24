@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
 <body>
     <section>
-        <div class="container w-25 mx-auto">
+        <div class="container mt-3 w-25 mx-auto">
             <form action="islem.php" method="POST">
                 <div class="w-100 mb-3 bg-danger text-white rounded-2">
                     <span>Veri Tabanı Kayıt</span>
@@ -25,14 +25,7 @@
             </form>
         </div>
     </section>
-<?php 
-
-$bilgilerimsor=$db->prepare("SELECT * from bilgilerim");
-$bilgilerimsor->execute();
-$say=0;
-while($bilgilerimcek=$bilgilerimsor->fetch(PDO::FETCH_ASSOC)) { $say++?>
-
-<table class="table table-striped table-hover">
+    <table class="table table-striped table-hover">
   <thead>
     <tr>
       <th scope="col">S.No</th>
@@ -46,6 +39,14 @@ while($bilgilerimcek=$bilgilerimsor->fetch(PDO::FETCH_ASSOC)) { $say++?>
       
     </tr>
   </thead>
+<?php 
+
+$bilgilerimsor=$db->prepare("SELECT * from bilgilerim");
+$bilgilerimsor->execute();
+$say=0;
+while($bilgilerimcek=$bilgilerimsor->fetch(PDO::FETCH_ASSOC)) { $say++?>
+
+
   <tbody>
     <tr>
       <th scope="row"><?php echo $say; ?></th>
